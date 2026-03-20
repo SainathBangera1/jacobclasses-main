@@ -1,8 +1,21 @@
+import ImageCarousel from '@/components/ImageCarousel'
 import Link from 'next/link'
+
+const carouselImages = [
+  '/carousel-images/slide1.jpg',
+  '/carousel-images/slide2.jpg',
+  '/carousel-images/slide3.jpg',
+  '/carousel-images/slide4.jpg',
+  // add as many as you have
+]
 
 export default function HomePage() {
   return (
     <div className='max-w-4xl mx-auto py-12'>
+      {/* Carousel Section */}
+      <div className='mb-12'>
+        <ImageCarousel images={carouselImages} interval={5000} />
+      </div>
       {/* Hero Section */}
       <section className='text-center mb-16'>
         <h1 className='text-4xl font-bold text-primary dark:text-white mb-4'>

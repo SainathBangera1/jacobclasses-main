@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter, Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import LayoutWrapper from '@/components/LayoutWrapper'
@@ -21,6 +21,15 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Jacob Classes',
   description: 'Coaching Institute Management System',
+  manifest: '/manifest.json', // Link to manifest file
+}
+
+export const viewport: Viewport = {
+  themeColor: '#800000', // Maroon theme color
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 }
 
 export default function RootLayout({
