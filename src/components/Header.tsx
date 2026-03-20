@@ -34,7 +34,7 @@ export default function Header({ toggleSidebar }: HeaderProps) {
   }
 
   return (
-    <header className='bg-[#800000] text-white shadow-md fixed top-0 left-0 right-0 z-50'>
+    <header className='bg-[#800000] dark:bg-black text-white shadow-md fixed top-0 left-0 right-0 z-50'>
       <div className='container mx-auto px-4 sm:px-6 py-3 flex items-center justify-between'>
         <button
           onClick={toggleSidebar}

@@ -1,13 +1,12 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
 
 export default function LoginPage() {
   const [role, setRole] = useState<'student' | 'admin'>('student')
 
   return (
-    <div className='max-w-md mx-auto mt-8'>
+    <div className='max-w-md mx-auto mt-16'>
       <h1 className='text-2xl font-bold text-center mb-6'>
         Login to Jacob Classes
       </h1>
@@ -60,18 +59,11 @@ export default function LoginPage() {
         </div>
         <button
           type='submit'
-          className='w-full bg-primary text-white py-2 rounded-md hover:bg-primary/90 transition-colors'
+          className='w-full bg-[#800000] dark:bg-white dark:text-black font-extrabold text-white py-2 rounded-md hover:bg-primary/90 transition-colors'
         >
           Login
         </button>
       </form>
-
-      <p className='text-center mt-4 text-sm'>
-        Dont have an account?{' '}
-        <Link href='/signup' className='text-secondary hover:underline'>
-          Sign up as Student
-        </Link>
-      </p>
     </div>
   )
 }

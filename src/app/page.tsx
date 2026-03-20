@@ -14,16 +14,16 @@ export default function HomePage() {
         <div className='flex justify-center gap-4'>
           <Link
             href='/login'
-            className='bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90 transition-colors'
+            className='bg-[#800000] dark:bg-white dark:text-[#800000] text-white px-6 py-3 rounded-md hover:bg-primary/90 transition-colors'
           >
             Login
           </Link>
-          <Link
+          {/* <Link
             href='/signup'
             className='bg-secondary text-white px-6 py-3 rounded-md hover:bg-secondary/90 transition-colors'
           >
             Sign Up as Student
-          </Link>
+          </Link> */}
         </div>
       </section>
 

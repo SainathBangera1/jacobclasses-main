@@ -29,11 +29,11 @@ export default function Footer() {
   }, [])
 
   return (
-    <footer className='bg-[#800000] text-white border-t border-[#9a0000] py-4 mt-auto fixed bottom-0 left-0 right-0 z-50'>
+    <footer className='bg-[#800000] dark:bg-black text-white border-t border-[#9a0000] py-4 mt-auto fixed bottom-0 left-0 right-0 z-50'>
       <div className='container mx-auto px-4 sm:px-6 text-center text-sm'>
         {quote ? (
           <div className='text-white flex flex-col justify-center items-center'>
-            <p className='text-white'>{quote.text}</p>{' '}
+            <div className='text-white'>{quote.text}</div>{' '}
             <b className='text-white'>— {quote.author}</b>
           </div>
         ) : (
