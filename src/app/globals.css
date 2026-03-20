@@ -1,26 +1,119 @@
-@import "tailwindcss";
+/* Import Tailwind CSS */
+@import 'tailwindcss';
 
+/* Enable dark mode variant when .dark class is present on any ancestor */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Theme variables in RGB format */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Light mode colors (RGB) */
+  --background: 255 255 255;
+  --foreground: 17 24 39;
+  --primary: 34 50 106; /* #22326a */
+  --primary-foreground: 255 255 255;
+  --secondary: 255 145 77; /* #ff914d */
+  --secondary-foreground: 17 24 39;
+  --muted: 241 245 249;
+  --muted-foreground: 100 116 139;
+  --accent: 241 245 249;
+  --accent-foreground: 34 50 106;
+  --destructive: 239 68 68;
+  --border: 226 232 240;
+  --input: 226 232 240;
+  --ring: 34 50 106;
+  --card: 255 255 255;
+  --card-foreground: 17 24 39;
+  --popover: 255 255 255;
+  --popover-foreground: 17 24 39;
+  --maroon: 128 0 0;
+  /* Border radius */
+  --radius: 0.625rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Dark mode variables - applied when .dark class is present */
+.dark {
+  --background: 17 24 39; /* gray-900 */
+  --foreground: 255 255 255;
+  --primary: 34 50 106;
+  --primary-foreground: 255 255 255;
+  --secondary: 255 145 77;
+  --secondary-foreground: 17 24 39;
+  --muted: 31 41 55; /* gray-800 */
+  --muted-foreground: 156 163 175;
+  --accent: 31 41 55;
+  --accent-foreground: 255 255 255;
+  --destructive: 239 68 68;
+  --border: 55 65 81; /* gray-700 */
+  --input: 55 65 81;
+  --ring: 34 50 106;
+  --card: 31 41 55;
+  --card-foreground: 255 255 255;
+  --popover: 31 41 55;
+  --popover-foreground: 255 255 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Define theme extension (optional, for radius and other tokens) */
+@theme {
+  --radius: 0.625rem;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+}
+
+/* Base styles */
+@layer base {
+  * {
+    border-color: rgb(var(--border) / 1);
+    outline-color: rgb(var(--ring) / 0.5);
+  }
+
+  body {
+    background-color: rgb(var(--background) / 1);
+    color: rgb(var(--foreground) / 1);
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Smooth transitions for theme changes */
+  * {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+
+  /* Disable transitions temporarily during theme switch to prevent flash */
+  .no-transition,
+  .no-transition * {
+    transition-property: none !important;
+    transition-duration: 0ms !important;
+    transition-timing-function: none !important;
+  }
+
+  /* Ensure headings use foreground color */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: rgb(var(--foreground) / 1);
+  }
+
+  p {
+    color: rgb(var(--foreground) / 0.9);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Optional utility classes for theme colors (if you need them) */
+.bg-theme-background {
+  background-color: rgb(var(--background) / 1);
+}
+.text-theme-foreground {
+  color: rgb(var(--foreground) / 1);
+}
+.border-theme {
+  border-color: rgb(var(--border) / 1);
 }

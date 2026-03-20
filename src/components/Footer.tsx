@@ -21,7 +21,6 @@ export default function Footer() {
       })
       .catch((error) => {
         console.error('Failed to load quote:', error)
-        // Fallback quote in case of error
         setQuote({
           text: 'Education is the passport to the future.',
           author: 'Malcolm X',
@@ -30,12 +29,13 @@ export default function Footer() {
   }, [])
 
   return (
-    <footer className='bg-gray-100 dark:bg-dark-surface border-t dark:border-gray-700 py-4 mt-auto'>
-      <div className='container mx-auto px-4 sm:px-6 text-center text-sm text-gray-600 dark:text-gray-300'>
+    <footer className='bg-[#800000] text-white border-t border-[#9a0000] py-4 mt-auto fixed bottom-0 left-0 right-0 z-50'>
+      <div className='container mx-auto px-4 sm:px-6 text-center text-sm'>
         {quote ? (
-          <p>
-            {quote.text} — {quote.author}
-          </p>
+          <div className='text-white flex flex-col justify-center items-center'>
+            <p className='text-white'>{quote.text}</p>{' '}
+            <b className='text-white'>— {quote.author}</b>
+          </div>
         ) : (
           <p>Loading inspirational quote...</p>
         )}
