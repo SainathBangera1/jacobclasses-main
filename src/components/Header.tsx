@@ -1,6 +1,7 @@
 'use client'
 
 import { Menu, Sun, Moon } from 'lucide-react'
+import Image from 'next/image'
 import { useState, useEffect } from 'react'
 
 interface HeaderProps {
@@ -36,15 +37,13 @@ export default function Header({ toggleSidebar }: HeaderProps) {
   return (
     <header className='bg-[#800000] dark:bg-black text-white shadow-md fixed top-0 left-0 right-0 z-50'>
       <div className='container mx-auto px-4 sm:px-6 py-3 flex items-center justify-between'>
-        <button
-          onClick={toggleSidebar}
-          className='p-2 rounded-md hover:bg-[#9a0000] transition-colors'
-          aria-label='Toggle sidebar'
-        >
-          <Menu className='w-6 h-6' />
-        </button>
-
         <div className='flex items-center space-x-4'>
+          <Image
+            width={50}
+            height={50}
+            alt={'Jacob Classes Logo'}
+            src='/icons/icon-192x192.png'
+          />
           <span className='text-xl font-bold'>Jacob Classes</span>
           <button
             onClick={toggleDarkMode}
@@ -58,6 +57,13 @@ export default function Header({ toggleSidebar }: HeaderProps) {
             )}
           </button>
         </div>
+        <button
+          onClick={toggleSidebar}
+          className='p-2 rounded-md hover:bg-[#9a0000] transition-colors'
+          aria-label='Toggle sidebar'
+        >
+          <Menu className='w-6 h-6' />
+        </button>
       </div>
     </header>
   )
